@@ -27,7 +27,7 @@ namespace ApiCatalogoAulas.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Aula>>> GetAulas()
         {
-            return await _context.Aulas.ToListAsync();
+            return await _context.Aulas.OrderBy(x => x.Nome).ToListAsync();
         }
 
         // GET: api/Aulas/5
@@ -45,6 +45,7 @@ namespace ApiCatalogoAulas.Controllers
         }
 
         // PUT: api/Aulas/5
+        [ClaimsAuthorize("Total","Editar")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAula(int id, Aula aula)
         {
@@ -75,6 +76,7 @@ namespace ApiCatalogoAulas.Controllers
         }
 
         // POST: api/Aulas
+        [ClaimsAuthorize("Total", "Incluir")]
         [HttpPost]
         public async Task<ActionResult<Aula>> PostAula(Aula aula)
         {
@@ -85,6 +87,7 @@ namespace ApiCatalogoAulas.Controllers
         }
 
         // DELETE: api/Aulas/5
+        [ClaimsAuthorize("Total", "Excluir")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAula(int id)
         {

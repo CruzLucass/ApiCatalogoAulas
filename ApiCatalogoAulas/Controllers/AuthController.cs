@@ -74,6 +74,7 @@ namespace ApiCatalogoAulas.Controllers
         {
             var user = await _userManager.FindByEmailAsync(email);
 
+            //pego a claim do usuario para verificar
             var identityClaims = new ClaimsIdentity();
             identityClaims.AddClaims(await _userManager.GetClaimsAsync(user));
 
