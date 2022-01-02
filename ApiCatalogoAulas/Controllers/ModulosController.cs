@@ -44,6 +44,7 @@ namespace ApiCatalogoAulas.Controllers
             return modulo;
         }
 
+
         // PUT: api/Modulos/5
         [ClaimsAuthorize("Total", "Editar")]
         [HttpPut("{id}")]
@@ -74,6 +75,7 @@ namespace ApiCatalogoAulas.Controllers
 
             return NoContent();
         }
+
 
         // POST: api/Modulos
         [ClaimsAuthorize("Total", "Incluir")]

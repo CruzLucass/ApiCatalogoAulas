@@ -44,7 +44,16 @@ namespace ApiCatalogoAulas.Controllers
             return aula;
         }
 
+
+        // GET: api/Aulas/aulaspormodulo/5
+        [HttpGet("aulaspormodulo/{moduloid}")]
+        public async Task<ActionResult<IEnumerable<Aula>>> GetAulasPorModulo(int moduloId)
+        {
+             return await _context.Aulas.Where(x => x.ModuloId == moduloId).ToListAsync();
+        }
+
         // PUT: api/Aulas/5
+
         [ClaimsAuthorize("Total","Editar")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAula(int id, Aula aula)
@@ -76,6 +85,7 @@ namespace ApiCatalogoAulas.Controllers
         }
 
         // POST: api/Aulas
+
         [ClaimsAuthorize("Total", "Incluir")]
         [HttpPost]
         public async Task<ActionResult<Aula>> PostAula(Aula aula)
@@ -87,6 +97,7 @@ namespace ApiCatalogoAulas.Controllers
         }
 
         // DELETE: api/Aulas/5
+        
         [ClaimsAuthorize("Total", "Excluir")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAula(int id)

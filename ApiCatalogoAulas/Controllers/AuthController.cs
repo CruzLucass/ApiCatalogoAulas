@@ -1,4 +1,5 @@
 ﻿using ApiCatalogoAulas.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -66,7 +67,7 @@ namespace ApiCatalogoAulas.Controllers
                 return Ok(await GerarJwt(loginUser.Email));
             }
 
-            return BadRequest("Usuário ou senha inválidos");
+            return BadRequest(new { message = "Username or password is incorrect" });
         }
 
         //cria um novo token
