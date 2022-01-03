@@ -7,7 +7,7 @@ Caso dúvida siga este tutorial para instalar o banco https://help.eset.com/esmc
 Após o sgbd instalado vamos importar o arquivo do banco para o seu servidor.
 Segue o link com o tutorial para a importação do banco https://help.umbler.com/hc/pt-br/articles/202385865-MySQL-Importando-Exportando-um-banco-de-dados
 
-Clone o projeto em sua máquina usando o comando $ git clone <url>
+Clone o projeto em sua máquina usando o comando $ git clone https://github.com/CruzLucass/ApiCatalogoAulas.git
 Quando o projeto já estiver na sua máquina abra o arquivo appsettings.json e modifique o valor da propriedade "DefaultConnection", setando o Uid e o Pwd utilizado para logar no banco.
 
 Depois de configurado a connection string basta dar um run no VisualStudio 2019 e deixar a api rodando. Irá abrir o Swagger com a documentação das chamadas da api.
